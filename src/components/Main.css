@@ -1,0 +1,29 @@
+.first {
+    position: absolute;
+    bottom: 120px;
+    right: 60px;
+    color: white;
+    font-size: 25px;
+    display: block;
+    animation: number;
+    animation-duration: 1s;
+}
+
+.second {
+    position: absolute;
+    bottom: 120px;
+    right: 60px;
+    color: white;
+    font-size: 25px;
+    display: none;
+}
+
+@keyframes number {
+    from {
+        bottom: 120px;
+    }
+
+    to {
+        bottom: 300px
+    }
+}
