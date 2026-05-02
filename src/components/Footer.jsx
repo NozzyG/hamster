@@ -5,8 +5,8 @@ import friends from '../assets/Group(1).svg'
 import earn from '../assets/Group 8.svg'
 import airdrop from '../assets/image 2.svg'
 
-function Footer() {
 
+function Footer({ setModalOpen }) {
 
     const boxes = [
         {
@@ -51,7 +51,7 @@ function Footer() {
                     <div className='flex  justify-around items-center bg-[#32363CB2] py-2 rounded-xl'>
                         {
                             boxes.map((box) => (
-                                <div key={box.id} className='flex flex-col gap-1 items-center hover:bg-[#21242980] text-[11px] text-gray-400  hover:text-white w-[65px] rounded-lg py-[6px] cursor-pointer'>
+                                <div key={box.id} onClick={box.id === 1 ? () => setModalOpen(true) : undefined} className='flex flex-col gap-1 items-center hover:bg-[#21242980] text-[11px] text-gray-400  hover:text-white w-[65px] rounded-lg py-[6px] cursor-pointer'>
                                     <img src={box.img} className='w-6 h-6 object-contain' />
                                     <p>{box.text}</p>
                                 </div>
@@ -59,7 +59,7 @@ function Footer() {
                         }
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     )
 }

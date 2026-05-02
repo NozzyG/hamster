@@ -2,8 +2,9 @@ import { useState } from 'react'
 import coin from '../assets/coin.svg'
 import hamster from '../assets/hamster.svg'
 import './Main.css'
+import Modal from './Modal'
 
-function Main() {
+function Main({ setModalOpen, isModalOpen }) {
 
     const [count, setCount] = useState(0)
     const [show, setShow] = useState(false)
@@ -22,6 +23,12 @@ function Main() {
                         +1
                     </p>
                 </div>
+
+                {
+                    isModalOpen && (
+                        <Modal setModalOpen={setModalOpen} />
+                    )
+                }
             </div >
         </>
     )

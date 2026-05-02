@@ -1,6 +1,7 @@
 import coin from '../assets/coin.svg'
+import HeaderModal from './HeaderModal';
 
-function Header() {
+function Header({ isModalBox, setModalBox }) {
 
     const cards = [
         {
@@ -33,7 +34,7 @@ function Header() {
                 <div className='flex gap-2 justify-center mt-10'>
                     {
                         cards.map((card) => (
-                            <div className='bg-[#32363C] w-full max-w-[117px] px-3 py-2 rounded-[10px] text-[11px] flex flex-col items-center justify-center'>
+                            <div key={card.id} onClick={card.id === 1 ? () => setModalBox(true) : undefined} className='bg-[#32363C] cursor-pointer w-full max-w-[117px] px-3 py-2 rounded-[10px] text-[11px] flex flex-col items-center justify-center'>
                                 <p className={`${card.variant}`}>{card.text}</p>
                                 <div className='flex items-center justify-center gap-1 mt-1'>
                                     <img src={card.img} className='w-4' alt="" />
@@ -42,6 +43,10 @@ function Header() {
                             </div>
                         ))
                     }
+
+                    {isModalBox && (
+                        <HeaderModal setModalBox={setModalBox} />
+                    )}
                 </div>
             </div>
         </>
